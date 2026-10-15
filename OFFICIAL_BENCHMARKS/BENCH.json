@@ -1,0 +1,750 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "OPENFRAMEWORKS",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARTIST_TOOLS\\OPENFRAMEWORKS\\UPSTREAM_CLONE",
+    "git": {
+      "head": "74d2770153dc65fda03a483cc61f69230ce43e79",
+      "url": "https://github.com/openframeworks/openframeworks",
+      "branch": "master",
+      "committed_at": "2026-09-22T21:47:17+10:00"
+    }
+  },
+  "metrics": {
+    "files_total": 3494,
+    "source_files_scanned": 1526,
+    "lines_of_code": 282937,
+    "languages": {
+      ".cpp": 643,
+      ".png": 594,
+      ".h": 573,
+      "(none)": 296,
+      ".md": 159,
+      ".mm": 127,
+      ".sh": 127,
+      ".make": 121,
+      ".jpg": 104,
+      ".ttf": 54,
+      ".frag": 52,
+      ".vert": 49,
+      ".gif": 34,
+      ".xml": 32,
+      ".json": 27
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE.md",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 0,
+    "unique": 0,
+    "by_ecosystem": {},
+    "list": []
+  },
+  "owasp_top10": {
+    "total_findings": 313,
+    "files_with_findings": 260,
+    "severity": {
+      "high": 18,
+      "medium": 5,
+      "low": 290
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 3,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "libs/openFrameworks/utils/ofRandomEngine.h",
+            "line": 11,
+            "cwe": "CWE-338",
+            "snippet": "// https://simplecxx.github.io/2018/11/03/seed-mt19937.html"
+          },
+          {
+            "severity": "medium",
+            "file": "libs/openFrameworks/utils/ofURLFileLoader.cpp",
+            "line": 48,
+            "cwe": "CWE-338",
+            "snippet": "arc4random_buf(buf, (size_t)num);"
+          },
+          {
+            "severity": "medium",
+            "file": "examples/math/randomExample/src/ofApp.cpp",
+            "line": 309,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 alternate_twister { seq };"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 19,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "scripts/of.sh",
+            "line": 442,
+            "cwe": "CWE-78",
+            "snippet": "if [[ \"$(uname)\" == \"Darwin\" ]]; then statm='stat -f %m'; else statm='stat -c %Y'; fi"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/of_build.sh",
+            "line": 967,
+            "cwe": "CWE-78",
+            "snippet": "buildLog=$(mktemp)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/linux/archlinux/install_dependencies.sh",
+            "line": 47,
+            "cwe": "CWE-78",
+            "snippet": "sudo -u $(logname) bash -c \"$AUR_HELPER_INTALL_CMD\""
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/download_libs.sh",
+            "line": 204,
+            "cwe": "CWE-78",
+            "snippet": "OS=$(uname)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/local_libs.sh",
+            "line": 108,
+            "cwe": "CWE-78",
+            "snippet": "OS=$(uname)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/ci/emscripten/examples_to_build.sh",
+            "line": 169,
+            "cwe": "CWE-78",
+            "snippet": "cur_root=$(pwd);"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/ci/emscripten/prism.js",
+            "line": 3,
+            "cwe": "CWE-95",
+            "snippet": "var _self=\"undefined\"!=typeof window?window:\"undefined\"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(e){var n=/(?:^|\\s)lang(?:uage)?-([\\w-]+)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworksCompiled/project/qtcreator/modules/of/helpers.js",
+            "line": 94,
+            "cwe": "CWE-95",
+            "snippet": "find.exec(findCommand(), params)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/utils/ofUtils.cpp",
+            "line": 1066,
+            "cwe": "CWE-78",
+            "snippet": "ret = _popen(command.c_str(), \"r\");"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofMatrix4x4.cpp",
+            "line": 977,
+            "cwe": "CWE-120",
+            "snippet": "C[i][j] gets (A[i][j]);}"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofVec2f.h",
+            "line": 695,
+            "cwe": "CWE-120",
+            "snippet": "/// ofVec3f mid = v1.getMiddle(v2); // mid gets (7.5, 5)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofVec3f.h",
+            "line": 729,
+            "cwe": "CWE-120",
+            "snippet": "/// ofVec3f mid = v1.getMiddle(v2); // mid gets (7.5, 5, 10)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/communication/ofSerial.cpp",
+            "line": 90,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(portNamesFriendly[nPorts], \"%s\", dataBuf);"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxXmlSettings/libs/tinyxml.cpp",
+            "line": 116,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( buf, \"&#x%02X;\", (unsigned) ( c & 0xff ) );"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxVectorGraphics/libs/CreEPS.cpp",
+            "line": 348,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( tempA.m_LineDashString, \" \" );"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp",
+            "line": 363,
+            "cwe": "CWE-120",
+            "snippet": "std::strcpy( messageCursor_, rhs.addressPattern );"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxKinect/libs/libfreenect/src/loader.c",
+            "line": 138,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(fw_filename, \"/%s\", filename);"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxiOS/src/sound/SoundEngine.cpp",
+            "line": 635,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(fileInfo->mFilePath, inFilePath);"
+          },
+          {
+            "severity": "medium",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFEGLConfigChooser.java",
+            "line": 385,
+            "cwe": "CWE-89",
+            "snippet": "Log.e(\"OF\", String.format(\"eglChooseConfig MSAAx8 failed with EXCEPTION:\") + ex.getMessage());"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 112,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "scripts/dev/create_package.sh",
+            "line": 439,
+            "cwe": "CWE-",
+            "snippet": "# FIXME:"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/download_libs.sh",
+            "line": 66,
+            "cwe": "CWE-",
+            "snippet": "#FIXME: remove later, now forcing \"latest\""
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/lib_sources.sh",
+            "line": 182,
+            "cwe": "CWE-",
+            "snippet": "tmp=$(mktemp -d \"${TMPDIR:-/tmp}/oflibs.XXXXXX\")"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/android/create_hierarchy_emptyExample.sh",
+            "line": 8,
+            "cwe": "CWE-",
+            "snippet": "mkdir -p $DEST_DIR/{gradle/wrapper,ofApp/{gradle/wrapper,src/main/{cpp,bin/data,java/cc/openframeworks/android,res/{drawable-hdpi,drawable-mdpi,drawable-xhdpi,drawable,layout,menu,"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofAVFoundationGrabber.mm",
+            "line": 158,
+            "cwe": "CWE-",
+            "snippet": "//TODO: this crashes on some devices ( Orbecc Astra Pro )"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofAVFoundationVideoPlayer.m",
+            "line": 211,
+            "cwe": "CWE-",
+            "snippet": "// TODO"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofGstUtils.cpp",
+            "line": 955,
+            "cwe": "CWE-",
+            "snippet": "//TODO: stride = mapinfo.size / height;"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofGstVideoGrabber.cpp",
+            "line": 462,
+            "cwe": "CWE-",
+            "snippet": "// TODO: gets formats for cameras, when a format returns a range it gets"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofGstVideoGrabber.h",
+            "line": 43,
+            "cwe": "CWE-",
+            "snippet": "void videoSettings(){};//TODO: what is this??"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofGstVideoPlayer.cpp",
+            "line": 120,
+            "cwe": "CWE-",
+            "snippet": "//TODO: Fedora 35 onwards has issues with playbin - so using playbin3"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofMediaFoundationPlayer.cpp",
+            "line": 50,
+            "cwe": "CWE-",
+            "snippet": "bool ofMediaFoundationPlayer::sBAllowDurationHack = true;"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofMediaFoundationPlayer.h",
+            "line": 100,
+            "cwe": "CWE-",
+            "snippet": "static void setDurationHackEnabled(bool ab);"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofConstants.h",
+            "line": 56,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: not used anymore in OF Core. Only kept for addons compatibility - 20231206"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofFileUtils.cpp",
+            "line": 63,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: Why absolute?"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofFileUtils.h",
+            "line": 350,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: - Deprecate"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofNoise.h",
+            "line": 156,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: This should not be required, backport it from Bill's GLSL code! */"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofSystemUtils.cpp",
+            "line": 6,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: ofConstants Targets"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofUtils.cpp",
+            "line": 2,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: split ofUtils in two files, one which uses urlparser / ofImage, other without for smaller apps."
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofUtils.h",
+            "line": 798,
+            "cwe": "CWE-",
+            "snippet": "double ofToDouble(const std::string & doubleString);"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/types/ofColor.h",
+            "line": 707,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: replace by std::clamp when it is exclusive C++17"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/types/ofParameter.h",
+            "line": 6,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: crossed references. ofPoint adds ofVec3f which adds ofVec2f and ofVec4f"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/sound/ofAVEngineSoundPlayer.h",
+            "line": 18,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: some can be moved to .mm"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/sound/ofMediaFoundationSoundPlayer.cpp",
+            "line": 39,
+            "cwe": "CWE-",
+            "snippet": "// TODO: This is called by ofMediaFoundationPlayer also"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/sound/ofMediaFoundationSoundPlayer.h",
+            "line": 217,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Adjust this based on file loaded"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/sound/ofOpenALSoundPlayer.cpp",
+            "line": 302,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: Alternative, open the file separately use mpg123_open_fd() instead"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "scripts/dev/downloader.sh",
+            "line": 330,
+            "cwe": "CWE-1188",
+            "snippet": "FINAL_EXTRA_ARGS+=\"--insecure \""
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/ofxiOSConstants.h",
+            "line": 140,
+            "cwe": "CWE-1104",
+            "snippet": "// backwards compatibility == 0.8.1"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/utils/ofxiOSMapKit.h",
+            "line": 156,
+            "cwe": "CWE-1104",
+            "snippet": "// backwards compatibility == 0.8.1"
+          }
+        ]
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 176,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "tests/utils/xml/src/main.cpp",
+            "line": 30,
+            "cwe": "CWE-319",
+            "snippet": "svg.setAttribute(\"xmlns\",\"http://www.w3.org/2000/svg\");"
+          },
+          {
+            "severity": "low",
+            "file": "tests/io/loadImage/src/main.cpp",
+            "line": 13,
+            "cwe": "CWE-319",
+            "snippet": "ofHttpRequest req(\"http://openframeworks.cc/about/0.jpg\", \"http\", false, true, true);"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/templates/android/ofApp/src/java/cc/openframeworks/android/OFActivity.java",
+            "line": 330,
+            "cwe": "CWE-319",
+            "snippet": "// http://developer.android.com/guide/topics/ui/menus.html"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/linux/debian/install_dependencies.sh",
+            "line": 58,
+            "cwe": "CWE-319",
+            "snippet": "echo \"if the error persists, please report an issue in github: http://github.com/openframeworks/openFrameworks/issues\""
+          },
+          {
+            "severity": "low",
+            "file": "scripts/linux/chip/install_dependencies.sh",
+            "line": 44,
+            "cwe": "CWE-319",
+            "snippet": "echo \"if the error persists, please report an issue in github: http://github.com/openframeworks/openFrameworks/issues\""
+          },
+          {
+            "severity": "low",
+            "file": "scripts/linux/archlinux_armv7/install_dependencies.sh",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "downloader http://ci.openframeworks.cc/rtaudio-armv7hf.tar.bz2"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/downloader.sh",
+            "line": 10,
+            "cwe": "CWE-319",
+            "snippet": "Example: downloader http://ci.openframeworks.cc/libs/file.zip -s"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/nightlybuilds.sh",
+            "line": 101,
+            "cwe": "CWE-319",
+            "snippet": "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">'> /var/www/nightlybuilds.html"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/parsePRs.py",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "print '<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \\n\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">'"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/pull_and_build.sh",
+            "line": 61,
+            "cwe": "CWE-319",
+            "snippet": "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">'> /var/www/ofbuild.html"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dev/release.sh",
+            "line": 73,
+            "cwe": "CWE-319",
+            "snippet": "downloader http://openframeworks.cc/release_hook.php?version=${version} 2> /dev/null"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/linuxarmv7l/arch-bootstrap.sh",
+            "line": 31,
+            "cwe": "CWE-319",
+            "snippet": "DEFAULT_REPO_URL=\"http://mirrors.kernel.org/archlinux\""
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/linuxarmv7l/arch-bootstrap_downloadonly.sh",
+            "line": 47,
+            "cwe": "CWE-319",
+            "snippet": "DEFAULT_REPO_URL=\"http://mirrors.kernel.org/archlinux\""
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/linuxarmv7l/install.sh",
+            "line": 85,
+            "cwe": "CWE-319",
+            "snippet": "#$ROOT/arch-bootstrap_downloadonly.sh -a armv7h -r \"http://eu.mirror.archlinuxarm.org/\" ~/archlinux"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/linux64/install.sh",
+            "line": 13,
+            "cwe": "CWE-319",
+            "snippet": "# # fails on travis sometimes, see http://stackoverflow.com/a/27410479/599884"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/android/install.sh",
+            "line": 76,
+            "cwe": "CWE-319",
+            "snippet": "#downloader http://ci.openframeworks.cc/projectGenerator/projectGenerator_linux"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ci/addons/install.sh",
+            "line": 52,
+            "cwe": "CWE-319",
+            "snippet": "downloader http://ci.openframeworks.cc/openFrameworks_libs/$TARGET/armv7/libopenFrameworksDebug.a;"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofGstUtils.cpp",
+            "line": 157,
+            "cwe": "CWE-319",
+            "snippet": "\"http://openframeworks.cc/\");"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/video/ofVideoPlayer.h",
+            "line": 87,
+            "cwe": "CWE-319",
+            "snippet": "/// \\sa http://www.opengl.org/sdk/docs/man4/html/glBindTexture.xhtml"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofConstants.h",
+            "line": 82,
+            "cwe": "CWE-319",
+            "snippet": "// \t\thttp://www.ogre3d.org/docs/api/html/OgrePlatform_8h-source.html"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofFileUtils.h",
+            "line": 765,
+            "cwe": "CWE-319",
+            "snippet": "// http://www.cplusplus.com/reference/iostream/fstream/"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofLog.h",
+            "line": 324,
+            "cwe": "CWE-319",
+            "snippet": "// Class idea from http://www.gamedev.net/community/forums/topic.asp?topic_id=525405&whichpage=1&#3406418"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofSystemUtils.cpp",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "// http://www.yakyak.org/viewtopic.php?p=1475838&sid=1e9dcb5c9fd652a6695ac00c5e957822#p1475838"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofURLFileLoader.h",
+            "line": 68,
+            "cwe": "CWE-319",
+            "snippet": "/// \\param url HTTP url to request, ie. \"http://somewebsite.com/someapi/someimage.jpg\""
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/utils/ofUtils.cpp",
+            "line": 932,
+            "cwe": "CWE-319",
+            "snippet": "// http://support.microsoft.com/kb/224816"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 4,
+    "files_with_findings": 4,
+    "severity": {
+      "high": 0,
+      "medium": 2,
+      "low": 2
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "scripts/of_build.sh",
+            "line": 439,
+            "cwe": "CWE-1336",
+            "snippet": "menuPickPgTemplate(){"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "examples/math/trigonometricMotionExample/src/ofApp.cpp",
+            "line": 55,
+            "cwe": "CWE-200",
+            "snippet": "//The following is just to print the instructions to the screen."
+          }
+        ]
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/graphics/ofPixels.h",
+            "line": 111,
+            "cwe": "CWE-",
+            "snippet": "/// interleaved V/U plane containing 8-bit 2x2 subsampled chroma samples."
+          },
+          {
+            "severity": "low",
+            "file": "apps/devApps/RandomExplorer/src/OKColor.h",
+            "line": 281,
+            "cwe": "CWE-",
+            "snippet": "static RGB gamut_clip_preserve_chroma(RGB rgb)"
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:4ad68e71-570c-56f3-9602-ce2a7cf6a681",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T07:37:22Z",
+      "component": {
+        "type": "application",
+        "name": "OPENFRAMEWORKS",
+        "version": "74d2770153dc",
+        "bom-ref": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+        "purl": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "74d2770153dc65fda03a483cc61f69230ce43e79"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/openframeworks/openframeworks"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": []
+  },
+  "elapsed_seconds": 187.13
+}

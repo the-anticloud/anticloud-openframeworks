@@ -1,0 +1,763 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "OPENFRAMEWORKS",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARTIST_TOOLS\\OPENFRAMEWORKS\\UPSTREAM_CLONE",
+    "git": {
+      "head": "74d2770153dc65fda03a483cc61f69230ce43e79",
+      "url": "https://github.com/openframeworks/openframeworks",
+      "branch": "master",
+      "committed_at": "2026-09-22T21:47:17+10:00"
+    }
+  },
+  "metrics": {
+    "files_total": 1411,
+    "source_files_scanned": 760,
+    "lines_of_code": 221830,
+    "languages": {
+      ".h": 313,
+      ".cpp": 235,
+      ".png": 184,
+      ".sh": 123,
+      "(none)": 94,
+      ".mm": 39,
+      ".mk": 25,
+      ".xcconfig": 24,
+      ".json": 23,
+      ".config": 22,
+      ".yml": 21,
+      ".make": 21,
+      ".java": 19,
+      ".gif": 16,
+      ".md": 13
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE.md",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 0,
+    "unique": 0,
+    "by_ecosystem": {},
+    "list": []
+  },
+  "owasp_top10": {
+    "total_findings": 289,
+    "files_with_findings": 235,
+    "severity": {
+      "high": 22,
+      "medium": 4,
+      "low": 263
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "libs/openFrameworks/utils/ofRandomEngine.h",
+            "line": 11,
+            "cwe": "CWE-338",
+            "snippet": "// https://simplecxx.github.io/2018/11/03/seed-mt19937.html"
+          },
+          {
+            "severity": "medium",
+            "file": "libs/openFrameworks/utils/ofURLFileLoader.cpp",
+            "line": 48,
+            "cwe": "CWE-338",
+            "snippet": "arc4random_buf(buf, (size_t)num);"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 23,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFEGLConfigChooser.java",
+            "line": 385,
+            "cwe": "CWE-89",
+            "snippet": "Log.e(\"OF\", String.format(\"eglChooseConfig MSAAx8 failed with EXCEPTION:\") + ex.getMessage());"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxiOS/src/sound/SoundEngine.cpp",
+            "line": 635,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(fileInfo->mFilePath, inFilePath);"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxKinect/libs/libfreenect/src/loader.c",
+            "line": 138,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(fw_filename, \"/%s\", filename);"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp",
+            "line": 363,
+            "cwe": "CWE-120",
+            "snippet": "std::strcpy( messageCursor_, rhs.addressPattern );"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxVectorGraphics/libs/CreEPS.cpp",
+            "line": 348,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( tempA.m_LineDashString, \" \" );"
+          },
+          {
+            "severity": "high",
+            "file": "addons/ofxXmlSettings/libs/tinyxml.cpp",
+            "line": 116,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( buf, \"&#x%02X;\", (unsigned) ( c & 0xff ) );"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/communication/ofSerial.cpp",
+            "line": 90,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(portNamesFriendly[nPorts], \"%s\", dataBuf);"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofMatrix4x4.cpp",
+            "line": 977,
+            "cwe": "CWE-120",
+            "snippet": "C[i][j] gets (A[i][j]);}"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofVec2f.h",
+            "line": 695,
+            "cwe": "CWE-120",
+            "snippet": "/// ofVec3f mid = v1.getMiddle(v2); // mid gets (7.5, 5)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/math/ofVec3f.h",
+            "line": 729,
+            "cwe": "CWE-120",
+            "snippet": "/// ofVec3f mid = v1.getMiddle(v2); // mid gets (7.5, 5, 10)"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworks/utils/ofUtils.cpp",
+            "line": 1066,
+            "cwe": "CWE-78",
+            "snippet": "ret = _popen(command.c_str(), \"r\");"
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworksCompiled/project/android/cmake.sh",
+            "line": 4,
+            "cwe": "CWE-78",
+            "snippet": "ORIGINAL_DIR=\"$(pwd)\""
+          },
+          {
+            "severity": "high",
+            "file": "libs/openFrameworksCompiled/project/qtcreator/modules/of/helpers.js",
+            "line": 94,
+            "cwe": "CWE-95",
+            "snippet": "find.exec(findCommand(), params)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/of.sh",
+            "line": 442,
+            "cwe": "CWE-78",
+            "snippet": "if [[ \"$(uname)\" == \"Darwin\" ]]; then statm='stat -f %m'; else statm='stat -c %Y'; fi"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/of_build.sh",
+            "line": 967,
+            "cwe": "CWE-78",
+            "snippet": "buildLog=$(mktemp)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/ci/emscripten/examples_to_build.sh",
+            "line": 169,
+            "cwe": "CWE-78",
+            "snippet": "cur_root=$(pwd);"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/ci/emscripten/prism.js",
+            "line": 3,
+            "cwe": "CWE-95",
+            "snippet": "var _self=\"undefined\"!=typeof window?window:\"undefined\"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(e){var n=/(?:^|\\s)lang(?:uage)?-([\\w-]+)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/download_libs.sh",
+            "line": 204,
+            "cwe": "CWE-78",
+            "snippet": "OS=$(uname)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/download_pg.sh",
+            "line": 112,
+            "cwe": "CWE-78",
+            "snippet": "OS=$(uname)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/local_libs.sh",
+            "line": 108,
+            "cwe": "CWE-78",
+            "snippet": "OS=$(uname)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/dev/nightlybuilds.sh",
+            "line": 30,
+            "cwe": "CWE-78",
+            "snippet": "mail -s \"Error creating nightly builds at $(date).\" $REPORT_MAIL <<EOF"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/linux/compileOF.sh",
+            "line": 13,
+            "cwe": "CWE-78",
+            "snippet": "SCRIPTPATH=\"$(pwd)\""
+          },
+          {
+            "severity": "high",
+            "file": "scripts/linux/archlinux/install_dependencies.sh",
+            "line": 47,
+            "cwe": "CWE-78",
+            "snippet": "sudo -u $(logname) bash -c \"$AUR_HELPER_INTALL_CMD\""
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 107,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFAndroidGPS.java",
+            "line": 152,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFAndroidSoundStream.java",
+            "line": 251,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFAndroidVideoGrabber.java",
+            "line": 223,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated catch block"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFAndroidVideoPlayer.java",
+            "line": 36,
+            "cwe": "CWE-",
+            "snippet": "// TODO Get movie FPS to implement Frame methods"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofAppAndroidWindow.cpp",
+            "line": 164,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated destructor stub"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidUtils.cpp",
+            "line": 580,
+            "cwe": "CWE-",
+            "snippet": "return \"[UNKNOWN]\"; //TODO"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidVibrator.cpp",
+            "line": 15,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated constructor stub"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidVideoGrabber.cpp",
+            "line": 158,
+            "cwe": "CWE-",
+            "snippet": "texture.texData.tex_t = 1; // Hack!"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidVideoPlayer.cpp",
+            "line": 139,
+            "cwe": "CWE-",
+            "snippet": "td.tex_t = 1; // Hack!"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimp/src/ofxAssimpBone.cpp",
+            "line": 38,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Cache this length and position"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimp/src/ofxAssimpNode.cpp",
+            "line": 63,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Keep an eye on this :O"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimp/src/ofxAssimpTexture.cpp",
+            "line": 38,
+            "cwe": "CWE-",
+            "snippet": "//this is a hack to allow for weak definations of functions that might not exist in older assimp versions"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimp/src/Source/ofxAssimpSrcScene.cpp",
+            "line": 504,
+            "cwe": "CWE-",
+            "snippet": "//this is a hack to allow for weak definations of functions that might not exist in older assimp versions"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.cpp",
+            "line": 280,
+            "cwe": "CWE-",
+            "snippet": "//this is a hack to allow for weak definations of functions that might not exist in older assimp versions"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h",
+            "line": 9,
+            "cwe": "CWE-",
+            "snippet": "// TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimpModelLoader/src/ofxAssimpTexture.cpp",
+            "line": 23,
+            "cwe": "CWE-",
+            "snippet": "//this is a hack to allow for weak definations of functions that might not exist in older assimp versions"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxEmscripten/src/ofxAppEmscriptenWindow.cpp",
+            "line": 548,
+            "cwe": "CWE-",
+            "snippet": "// TODO: this should probably be EMSCRIPTEN_FULLSCREEN_SCALE_STRETCH"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxEmscripten/src/ofxEmscriptenVideoGrabber.cpp",
+            "line": 25,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated constructor stub"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxGui/src/ofxPanel.cpp",
+            "line": 78,
+            "cwe": "CWE-",
+            "snippet": "bool texHackEnabled = ofIsTextureEdgeHackEnabled();"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/core/ofxiOSEAGLView.mm",
+            "line": 116,
+            "cwe": "CWE-",
+            "snippet": "ofDisableTextureEdgeHack();"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/core/ofxiOSGLKView.mm",
+            "line": 116,
+            "cwe": "CWE-",
+            "snippet": "ofDisableTextureEdgeHack();"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/gl/EAGLKView.h",
+            "line": 39,
+            "cwe": "CWE-",
+            "snippet": "/// TODO: need to give protocol explicity."
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxOpenALSoundPlayer.cpp",
+            "line": 239,
+            "cwe": "CWE-",
+            "snippet": "cerr<<\"error, cannot set pause on mp3s in openAL\"<<endl; // TODO"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/utils/ofxiOSExtras.h",
+            "line": 133,
+            "cwe": "CWE-",
+            "snippet": "// the OpenGL view will receive touchXXXXX events, but other UIViews will not"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/utils/ofxiOSExtras.mm",
+            "line": 102,
+            "cwe": "CWE-",
+            "snippet": "// TODO: could this be safe to just cache once? Device type shouldn't change while app is running."
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "scripts/dev/downloader.sh",
+            "line": 330,
+            "cwe": "CWE-1188",
+            "snippet": "FINAL_EXTRA_ARGS+=\"--insecure \""
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/ofxiOSConstants.h",
+            "line": 140,
+            "cwe": "CWE-1104",
+            "snippet": "// backwards compatibility == 0.8.1"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/utils/ofxiOSMapKit.h",
+            "line": 156,
+            "cwe": "CWE-1104",
+            "snippet": "// backwards compatibility == 0.8.1"
+          }
+        ]
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 154,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/Java/cc/openframeworks/OFAndroid.java",
+            "line": 102,
+            "cwe": "CWE-319",
+            "snippet": "// List based on http://bit.ly/NpkL4Q"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidSoundStream.cpp",
+            "line": 219,
+            "cwe": "CWE-319",
+            "snippet": "// http://download.oracle.com/javase/1.3/docs/guide/jni/jni-12.html#GetPrimitiveArrayCritical"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAndroid/src/ofxAndroidVideoGrabber.cpp",
+            "line": 498,
+            "cwe": "CWE-319",
+            "snippet": "// http://www.codeguru.com/cpp/g-m/multimedia/video/article.php/c7621"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimp/src/ofxAssimpScene.h",
+            "line": 5,
+            "cwe": "CWE-319",
+            "snippet": "// Written by Anton Marini (http://vade.info)"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "// Written by Anton Marini (http://vade.info)"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/ofxiOSConstants.h",
+            "line": 6,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/core/ofxiOSAppDelegate.mm",
+            "line": 268,
+            "cwe": "CWE-319",
+            "snippet": "*  http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/CreatingWindows/CreatingWindows.html"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/core/ofxiOSGLKViewController.mm",
+            "line": 322,
+            "cwe": "CWE-319",
+            "snippet": "// http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/RespondingtoDeviceOrientationChanges/RespondingtoDeviceOrientationChanges.html"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/core/ofxiOSViewController.mm",
+            "line": 250,
+            "cwe": "CWE-319",
+            "snippet": "// http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/RespondingtoDeviceOrientationChanges/RespondingtoDeviceOrientationChanges.html"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/gl/EAGLView.m",
+            "line": 160,
+            "cwe": "CWE-319",
+            "snippet": "*  http://stackoverflow.com/questions/5944050/cadisplaylink-opengl-rendering-breaks-uiscrollview-behaviour/5956119#5956119"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/AVSoundPlayer.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/AVSoundPlayer.m",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundPlayer.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundPlayer.mm",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundStream.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundStream.mm",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundStreamDelegate.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/ofxiOSSoundStreamDelegate.mm",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundEngine.cpp",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "http://stormyprods.com/SoundEngine"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundEngine.h",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "http://stormyprods.com/SoundEngine"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundInputStream.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundInputStream.m",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundOutputStream.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundOutputStream.m",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          },
+          {
+            "severity": "low",
+            "file": "addons/ofxiOS/src/sound/SoundStream.h",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "//  http://julapy.com/blog"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 3,
+    "files_with_findings": 3,
+    "severity": {
+      "high": 0,
+      "medium": 1,
+      "low": 2
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "scripts/of_build.sh",
+            "line": 439,
+            "cwe": "CWE-1336",
+            "snippet": "menuPickPgTemplate(){"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "apps/devApps/RandomExplorer/src/OKColor.h",
+            "line": 281,
+            "cwe": "CWE-",
+            "snippet": "static RGB gamut_clip_preserve_chroma(RGB rgb)"
+          },
+          {
+            "severity": "low",
+            "file": "libs/openFrameworks/graphics/ofPixels.h",
+            "line": 111,
+            "cwe": "CWE-",
+            "snippet": "/// interleaved V/U plane containing 8-bit 2x2 subsampled chroma samples."
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:4ad68e71-570c-56f3-9602-ce2a7cf6a681",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T15:15:00Z",
+      "component": {
+        "type": "application",
+        "name": "OPENFRAMEWORKS",
+        "version": "74d2770153dc",
+        "bom-ref": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+        "purl": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "74d2770153dc65fda03a483cc61f69230ce43e79"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/openframeworks/openframeworks"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": []
+  },
+  "elapsed_seconds": 665.8
+}

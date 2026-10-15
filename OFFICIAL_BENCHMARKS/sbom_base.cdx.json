@@ -1,0 +1,38 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:4ad68e71-570c-56f3-9602-ce2a7cf6a681",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-05T15:15:00Z",
+    "component": {
+      "type": "application",
+      "name": "OPENFRAMEWORKS",
+      "version": "74d2770153dc",
+      "bom-ref": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+      "purl": "pkg:generic/anticloud/OPENFRAMEWORKS@74d2770153dc",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "74d2770153dc65fda03a483cc61f69230ce43e79"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/openframeworks/openframeworks"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": []
+}
